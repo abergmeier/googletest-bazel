@@ -1,5 +1,3 @@
-# http://bazel.io/
-# vim: set ft=python sts=2 sw=2 et:
 
 licenses(["notice"])  # MIT license
 
@@ -10,7 +8,7 @@ cc_library(
 )
 
 cc_library(
-    name = "gtest",
+    name = "googletest",
     hdrs = glob([
       "gtest/*.h",
       "gtest/**/*.h",
@@ -19,6 +17,7 @@ cc_library(
       "src/gtest-all.cc",
       "src/gtest-internal-inl.h",
     ],
+    includes = ["."],
     deps = [":gtest_prod"],
     linkopts = ["-pthread"],
     visibility = ["//visibility:public"],
